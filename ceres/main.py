@@ -1,6 +1,7 @@
 import os.path
 
 import pygame
+from pygame import Vector2
 
 import core
 from ceres.states import States
@@ -15,16 +16,29 @@ def setup():
 def run():
     core.cleanScreen()
     if core.memory('states') == States.START:
-        draw_start_menu()
+        display_start()
 
 
 def draw_start_menu():
-    core.setBgColor((255, 255, 255))
-    text_hyperspace((0, 0, 0), 'ASTEROÏDES', (285, 180))
+    text_hyperspace((255, 255, 255), 'CERES', (440, 120))
+    text_hyperspace((255, 255, 255), 'ENHANCED', (320, 220))
+
+
+def display_start():
+    core.memory("texture", core.Texture("assets/img/background.jpg", Vector2(0, 0), 0, [1280, 720]))
+
+    if core.memory('states') == States.START:
+        draw_start_menu()
+
+    if not core.memory("texture").ready:
+        core.memory("texture").load()
+    core.memory("texture").show()
+
+    draw_start_menu()
 
 
 def text_hyperspace(color, texte, position):
-    myfont = pygame.font.Font("assets/fonts/HyperspaceBold-GM0g.ttf", 120)
+    myfont = pygame.font.Font("assets/fonts/Spacequest.ttf", 120)
     textsurface = myfont.render(texte, False, color)
     if len(color) > 3:
         textsurface.set_alpha(color[3])
