@@ -20,8 +20,8 @@ def run():
 
 
 def draw_start_menu():
-    text_hyperspace((255, 255, 255), 'CERES', (440, 120))
-    text_hyperspace((255, 255, 255), 'ENHANCED', (320, 220))
+    text_spacequest((255, 255, 255), 'CERES', (440, 40))
+    text_spacequest((255, 255, 255), 'ENHANCED', (320, 140))
 
 
 def display_start():
@@ -37,7 +37,7 @@ def display_start():
     draw_start_menu()
 
 
-def text_hyperspace(color, texte, position):
+def text_spacequest(color, texte, position):
     myfont = pygame.font.Font("assets/fonts/Spacequest.ttf", 120)
     textsurface = myfont.render(texte, False, color)
     if len(color) > 3:
