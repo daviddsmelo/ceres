@@ -37,6 +37,14 @@ def display_start():
     draw_start_menu()
 
 
+def display_game():
+    core.setBgColor(0, 0, 0)
+
+
+def display_gameover():
+    pass
+
+
 def text_spacequest(color, texte, position):
     myfont = pygame.font.Font("assets/fonts/Spacequest.ttf", 120)
     textsurface = myfont.render(texte, False, color)
