@@ -1,5 +1,7 @@
 import os.path
 
+import pygame
+
 import core
 from ceres.states import States
 
@@ -17,12 +19,16 @@ def run():
 
 
 def draw_start_menu():
+    core.setBgColor((255, 255, 255))
+    text_hyperspace((0, 0, 0), 'ASTEROÏDES', (285, 180))
 
-    pass
 
-
-def load_assets(self):
-    self.fonts_dir = os.path.join(self.fonts_dir, 'font')
+def text_hyperspace(color, texte, position):
+    myfont = pygame.font.Font("assets/fonts/HyperspaceBold-GM0g.ttf", 120)
+    textsurface = myfont.render(texte, False, color)
+    if len(color) > 3:
+        textsurface.set_alpha(color[3])
+    core.screen.blit(textsurface, position)
 
 
 core.main(setup, run)
